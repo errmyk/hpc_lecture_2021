@@ -98,7 +98,7 @@ int main(int argc, char** argv) {
     for (int j=0; j<N; j++)
       subA[N*i+j] = A[N*(i+offset)+j];
   
-for (int i=0; i<N; i++)
+  for (int i=0; i<N; i++)
     for (int j=0; j<N/size; j++)
       subB[N/size*i+j] = B[N*i+j+offset];
   int recv_from = (rank + 1) % size;
@@ -129,10 +129,10 @@ for (int i=0; i<N; i++)
     for (int j=0; j<N; j++)
       for (int k=0; k<N; k++)
         C[N*i+j] -= A[N*i+k] * B[N*k+j];
-   double err = 0;
-    for (int i=0; i<N; i++)
-      for (int j=0; j<N; j++)
-        err += fabs(C[N*i+j]);
+  double err = 0;
+  for (int i=0; i<N; i++)
+    for (int j=0; j<N; j++)
+      err += fabs(C[N*i+j]);
   if(rank==0) {
     double time = comp_time+comm_time;
     printf("N    : %d\n",N);
